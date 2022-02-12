@@ -47,4 +47,5 @@ Source: https://github.com/RandyKnapp/Auga
 This repository is a design / recolor edited version of RandyKnapp/Auga
 
 Fixed bug :
-* The height of the player inventory when more than 4 rows are activated
+* A bit more modern ui for the backgrounds (TODO)
+* The height of the player inventory when more than 4 rows are activated (TODO)

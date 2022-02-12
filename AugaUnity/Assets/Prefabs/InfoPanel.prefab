@@ -656,9 +656,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blendMode: 0
   intensity: 1
-  gradientType: 1
-  linearColor1: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  linearColor2: {r: 1, g: 0, b: 0, a: 1}
+  gradientType: 0
+  linearColor1: {r: 0.28235295, g: 0.23529412, b: 0.1882353, a: 0.8}
+  linearColor2: {r: 0.1254902, g: 0.101960786, b: 0.08235294, a: 0.8}
   cornerColorUpperLeft: {r: 0.1254902, g: 0.101960786, b: 0.08235294, a: 1}
   cornerColorUpperRight: {r: 0.28235295, g: 0.23529412, b: 0.1882353, a: 1}
   cornerColorLowerRight: {r: 0.32156864, g: 0.26666668, b: 0.21568628, a: 1}
