@@ -46,6 +46,7 @@ Source: https://github.com/RandyKnapp/Auga
 
 This repository is a design / recolor edited version of RandyKnapp/Auga
 
-Fixed bug :
+What's more than in the base repository :
+* Added dynamic language based on the game language + fallback to english
 * A bit more modern ui for the backgrounds (TODO)
 * The height of the player inventory when more than 4 rows are activated (TODO)
