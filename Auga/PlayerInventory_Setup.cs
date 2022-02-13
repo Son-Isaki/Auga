@@ -192,6 +192,31 @@ namespace Auga
             }
         }
 
+        // fix the player inventory total height
+        [HarmonyPatch(typeof(InventoryGui), nameof(InventoryGui.UpdateInventory))]
+        public static class InventoryGui_UpdateInventory_Patch
+        {
+            public static void Postfix(InventoryGui __instance)
+            {
+                var player = Player.m_localPlayer;
+                if (player != null)
+                {
+                    // fix the player inventory total height
+                    float playerHeight = (float)__instance.m_playerGrid.m_inventory.GetHeight() * __instance.m_playerGrid.m_elementSpace + 55f;
+                    __instance.m_player.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, playerHeight);
+
+                    // fix the container position
+                    float spaceBetweenContainer = 35f;
+                    Vector3 position = new Vector3(
+                        __instance.m_container.position.x,
+                        __instance.m_player.position.y - playerHeight - spaceBetweenContainer,
+                        __instance.m_container.position.z
+                    );
+                    __instance.m_container.SetPositionAndRotation(position, __instance.m_container.rotation);
+                }
+            }
+        }
+
         //CreateItemTooltip
         [HarmonyPatch(typeof(InventoryGrid), nameof(InventoryGrid.CreateItemTooltip))]
         public static class InventoryGrid_CreateItemTooltip_Patch
