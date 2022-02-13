@@ -67,11 +67,13 @@ namespace Auga
         public Color TooHard = new Color(0.8f, 0.7f, 0.7f, 1f);
     }
 
-    [BepInPlugin(PluginID, "Project Auga", Version)]
+    [BepInPlugin(PluginID, PluginName, Version)]
     public class Auga : BaseUnityPlugin
     {
         public const string PluginID = "randyknapp.mods.auga";
-        public const string Version = "1.0.8";
+        public const string PluginName = "Project Auga";
+        public const string Version = "1.1.0";
+        public const string FallbackLanguage = "English";
 
         private static ConfigEntry<bool> _loggingEnabled;
         private static ConfigEntry<LogLevel> _logLevel;
@@ -134,19 +136,38 @@ namespace Auga
 
         private static void LoadTranslations()
         {
-            var translationsJsonText = LoadJsonText("translations.json");
-            if (string.IsNullOrEmpty(translationsJsonText))
+            try
             {
-                return;
-            }
+                // get the game selected language
+                string selectedLanguage = Localization.instance.GetSelectedLanguage();
+                string languageLoaded = selectedLanguage;
 
-            var translations = (IDictionary<string, object>)JSON.Parse(translationsJsonText);
-            foreach (var translation in translations)
-            {
-                if (!string.IsNullOrEmpty(translation.Key) && !string.IsNullOrEmpty(translation.Value.ToString()))
+                var translationsJsonText = LoadJsonText($"translations/{selectedLanguage}.json");
+                if (string.IsNullOrEmpty(translationsJsonText))
                 {
-                    Localization.instance.AddWord(translation.Key, translation.Value.ToString());
+                    // fallback language : English by default
+                    languageLoaded = FallbackLanguage;
+                    translationsJsonText = LoadJsonText($"translations/{FallbackLanguage}.json");
+                    if (string.IsNullOrEmpty(translationsJsonText))
+                    {
+                        return; // in case that even the English translations could not be found
+                    }
                 }
+
+                var translations = (IDictionary<string, object>)JSON.Parse(translationsJsonText);
+                foreach (var translation in translations)
+                {
+                    if (!string.IsNullOrEmpty(translation.Key) && !string.IsNullOrEmpty(translation.Value.ToString()))
+                    {
+                        Localization.instance.AddWord(translation.Key, translation.Value.ToString());
+                    }
+                }
+
+                _instance.Logger.LogMessage($"Auga language loaded: {languageLoaded}");
+            }
+            catch (Exception ex)
+            {
+                _instance.Logger.LogError($"Auga language loading error : {ex.Message} : {ex.StackTrace}");
             }
         }
 
