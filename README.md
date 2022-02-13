@@ -16,6 +16,12 @@ Basically everything:
 
 SEE SCREENSHOTS HERE: https://github.com/RandyKnapp/Auga/tree/main/Auga/Screenshots
 
+## What's Changed with the Son-Isaki version?
+
+* Added dynamic language based on the game language + fallback to english
+* A bit more modern ui for the backgrounds (TODO)
+* The height of the player inventory when more than 4 rows are activated (TODO)
+
 ## How to Install
 
   1. Install [BepInEx for Valheim﻿](https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/)
@@ -41,12 +47,3 @@ Project Auga comes with an API that allows other mods to easily access its featu
 
 Auga API: https://github.com/RandyKnapp/Auga/wiki/Auga-API
 Source: https://github.com/RandyKnapp/Auga
-
-## Auga from Son-Isaki
-
-This repository is a design / recolor edited version of RandyKnapp/Auga
-
-What's more than in the base repository :
-* Added dynamic language based on the game language + fallback to english
-* A bit more modern ui for the backgrounds (TODO)
-* The height of the player inventory when more than 4 rows are activated (TODO)
