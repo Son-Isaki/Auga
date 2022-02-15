@@ -35,7 +35,7 @@
     "itemtype_helmet": "Casque",
     "itemtype_chest": "Armure",
     "itemtype_ammo": "Ammunition",
-    "itemtype_legs": "Jambière",
+    "itemtype_legs": "Jambières",
     "itemtype_trophie": "Trophée",
     "itemtype_twohandedweapon": "Arme lourde",
     "itemtype_torch": "Torche",
@@ -98,5 +98,13 @@
     "trash": "Poubelle",
     "percent_effective": "Efficacité:",
     "status_desc": "Base <color=$1>$2</color> + Nourriture <color=$3>$4</color>",
+    "elemental_desc": "$1 +$2",
+    "armor_desc": "Résistance <color=$1>$2</color>",
+    "blocking_desc": "Blocage <color=$1>$2</color>",
+    "element_poison": "Poison",
+    "element_lightning": "Foudre",
+    "element_spirit": "Spirituel",
+    "element_fire": "Brulure",
+    "element_frost": "Gel",
     "": ""
 }

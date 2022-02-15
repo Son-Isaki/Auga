@@ -192,7 +192,6 @@ namespace Auga
             }
         }
 
-        // fix the player inventory total height
         [HarmonyPatch(typeof(InventoryGui), nameof(InventoryGui.UpdateInventory))]
         public static class InventoryGui_UpdateInventory_Patch
         {

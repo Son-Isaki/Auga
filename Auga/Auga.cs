@@ -72,7 +72,7 @@ namespace Auga
     {
         public const string PluginID = "randyknapp.mods.auga";
         public const string PluginName = "Project Auga";
-        public const string Version = "1.1.0";
+        public const string Version = "1.2.0";
         public const string FallbackLanguage = "English";
 
         private static ConfigEntry<bool> _loggingEnabled;
